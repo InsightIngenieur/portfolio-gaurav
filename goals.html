@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Sharma - My Goals</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <meta name="description"
+        content="Discover Gaurav Sharma's professional short-term and long-term goals as a Full-Stack Developer.">
+</head>
+<!-- Author: Gaurav Sharma 
+     Date: December 10, 2023 -->
+
+<body id="goals-body">
+
+
+    <!-- Main Navigation Menu -->
+    <nav class="navbar">
+        <span class="hamburger">&#9776;</span>
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="goals.html" class="active">Goals</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="goalsApp" class="main-content">
+
+        <!-- Goals Section -->
+        <section id="goals-section">
+            <header>
+                <h1 class="page-title">Professional Goals</h1>
+            </header>
+
+            <!-- Goals Section with Vue.js -->
+            <section id="goals-details">
+                <header>
+                    <h1 class="page-title">Long-Term & Short-Term Goals</h1>
+                </header>
+
+                <!-- Toggle Button for Short-Term and Long-Term Goals -->
+                <button @click="toggleGoals" class="toggle-goals-btn">{{ showShortTerm ? 'Show Long-Term Goals' : 'Show Short-Term Goals' }}</button>
+
+                <!-- Short-Term Goals -->
+                <div v-if="showShortTerm">
+                    <h2>Short-Term Goals (Next 2 Years)</h2>
+                    <ul class="goal-list">
+                        <li v-for="goal in shortTermGoals">{{ goal }}</li>
+                    </ul>
+                </div>
+
+                <!-- Long-Term Goals -->
+                <div v-if="showLongTerm">
+                    <h2>Long-Term Goals (Beyond 2 Years)</h2>
+                    <ul class="goal-list">
+                        <li v-for="goal in longTermGoals">{{ goal }}</li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="current-year"></span> Gaurav Sharma. All Rights Reserved.</p>
+    </footer>
+
+
+    <!-- Year Update Script -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script src="main.js"></script>
+    <!-- Vue.js and Year Script -->
+    <script>
+        new Vue({
+            el: '#goalsApp',
+            data: {
+                showShortTerm: true,
+                showLongTerm: false,
+                shortTermGoals: [
+                    'Become proficient in React.js and Vue.js for front-end development.',
+                    'Secure a position as a junior full-stack developer.',
+                    'Contribute to open-source projects to give back to the community.', 
+                    'give back to the community.',
+'Achieve a certification in a new programming language or technology.',
+'Develop and publish a mobile application to both Android and iOS platforms.'
+],
+longTermGoals: [
+'Advance to a lead developer role, steering innovative tech projects.',
+'Launch a tech consultancy to help businesses leverage technology effectively.',
+'Establish a strong online presence with a tech blog and online courses.',
+'Mentor aspiring developers and establish a coding bootcamp.',
+'Specialize in cutting-edge fields like AI or quantum computing.'
+]
+},
+methods: {
+toggleGoals: function () {
+this.showShortTerm = !this.showShortTerm;
+this.showLongTerm = !this.showLongTerm;
+}
+}
+});
+</script>
+</body>
+
+</html>

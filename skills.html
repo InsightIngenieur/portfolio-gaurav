@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Sharma - Skills</title>  
+    <link rel="stylesheet" href="styles.css"> 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head> 
+
+<body>
+    <!-- Navigation Menu -->
+<nav class="navbar">  
+    <span class="hamburger">&#9776;</span>
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="skills.html" class="active">Skills</a></li> 
+        <li><a href="projects.html">Projects</a></li> 
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+    <div id="skillsApp">
+        <!-- Skills Section -->
+        <section id="skills" class="container my-5">
+            <h1 class="section-title text-center heading-white">Skills</h1> 
+
+            <div class="skills-intro text-center text-white">
+                <p>
+                    My professional skill set has been cultivated through dedicated practice and real-world experience. Here’s a snapshot of the hard and soft skills that I bring to the table.
+                </p>
+            </div>
+            
+            <div class="row">
+                <!-- Hard Skills -->
+                <div class="col-md-6 text-white">
+                    <h2>Hard Skills</h2>
+                    <transition name="fade">
+                        <ul class="skills-list">
+                            <li v-for="skill in hardSkills">
+                                <i :class="skill.icon"></i> {{ skill.name }}
+                            </li>
+                        </ul>
+                    </transition>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div class="col-md-6 text-white">
+                    <h2>Soft Skills</h2>
+                    <transition name="fade">
+                        <ul class="skills-list">
+                            <li v-for="skill in softSkills">{{ skill }}</li>
+                        </ul>
+                    </transition>
+                </div>
+            </div>
+        </section>
+
+         <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="current-year"></span> Gaurav Sharma. All Rights Reserved.</p>
+    </footer> 
+     
+    <!-- Year Update Script -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    </div>
+
+    <!-- Vue.js Script -->
+    <script>
+        new Vue({
+            el: '#skillsApp',
+            data: {
+                hardSkills: [
+                    { name: 'JavaScript (ES6+)', icon: 'fab fa-js-square' },
+                    { name: 'Advanced CSS with SASS', icon: 'fab fa-css3-alt' },
+                    { name: 'HTML5', icon: 'fab fa-html5' },
+                    { name: 'SQL and NoSQL Databases', icon: 'fas fa-database' },
+                    { name: 'ReactJS and Vue.js', icon: 'fab fa-vuejs' },
+                    { name: 'Node.js and Express', icon: 'fab fa-node-js' }
+                ],
+                softSkills: [
+                    'Effective Communication',
+                    'Team Collaboration',
+                    'Problem-Solving',
+                    'Active Listening and Empathy',
+                    'Public Speaking and Presentation'
+                ]
+            }
+        });
+    </script> 
+    <script src="main.js"></script>
+</body>
+</html>

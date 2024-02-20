@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Sharma - Full-Stack Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Gaurav Sharma's Portfolio showcasing skills, projects, and professional journey as a Full-Stack Developer.">
+    <meta name="keywords" content="Gaurav Sharma, Full-Stack Developer, Portfolio">
+</head>
+<!-- Author: Gaurav Sharma 
+     Date: December 10, 2023 -->
+
+<body>
+    <div id="app">
+        <navigation-menu></navigation-menu>
+        <hero-section></hero-section>
+        <projects-overview></projects-overview>
+        <site-footer></site-footer>
+    </div>
+
+    <script>
+        Vue.component('navigation-menu', {
+            template: `
+                    <nav class="navbar">  
+                        <span class="hamburger">&#9776;</span>
+                     <ul id="nav-links">
+                            <li><a href="index.html" class="active">Home</a></li>
+                            <li><a href="goals.html">Goals</a></li>
+                            <li><a href="skills.html">Skills</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="resume.html">Resume</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                `
+        });
+
+        Vue.component('hero-section', {
+            template: `
+                    <section id="home" class="hero">
+                        <div class="hero-content">
+                            <h1 class="hero-heading">Gaurav Sharma</h1>
+                            <p class="intro-text">
+                                Welcome to my portfolio. I'm a full-stack developer with a drive for creating web applications that are not only functional but also impactful. Dive into my portfolio to explore my professional journey and the projects that define my career.
+                            </p>
+                            <a href="contact.html" class="btn-primary">Connect With Me</a>
+                        </div>
+                    </section>
+                `
+        });
+
+        Vue.component('projects-overview', {
+            data: function () {
+                return {
+                    projects: [
+                        {
+                            title: 'Real-Time Transit Map',
+                            description: 'A web solution displaying a map with real-time transit data.',
+                            link: 'projects.html#project1'
+                        },
+                        {
+                            title: 'After School Program Website',
+                            description: 'A vibrant, single-page website for ACME Childcare’s After School Program.',
+                            link: 'projects.html#project2'
+                        }
+                        // ... More projects will be added later
+                    ]
+                }
+            },
+            template: `
+                    <section id="projects-overview" class="container my-5">
+                        <h2 class="text-center mb-4">Featured Projects</h2>
+                        <div class="card mb-3" v-for="project in projects">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ project.title }}</h3>
+                                <p class="card-text">{{ project.description }}</p>
+                                <a :href="project.link" class="btn btn-primary">View More</a>
+                            </div>
+                        </div>
+                    </section>
+                `
+        });
+
+        Vue.component('site-footer', {
+            template: `
+                    <footer>
+                        <p>&copy; <span id="current-year"></span> Gaurav Sharma. All Rights Reserved.</p>
+                    </footer>
+                `
+        });
+
+        new Vue({
+            el: '#app'
+        });
+    </script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script> 
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Sharma - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="contactApp" style="display: flex; flex-direction: column; min-height: 100vh;">
+        <!-- Navigation Menu -->
+        <nav class="navbar"> 
+            <span class="hamburger">&#9776;</span>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="goals.html">Goals</a></li>
+                <li><a href="skills.html">Skills</a></li> 
+                <li><a href="projects.html">Projects</a></li> 
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container my-5" style="flex: 1;">
+            <h1 class="section-title text-center heading-white">Contact Me</h1>
+            <div class="contact-intro text-center text-white">
+                <p>Interested in collaborating or discussing an opportunity? Reach out to me via the form or connect on
+                    social media.</p>
+            </div>
+
+            <!-- Contact Form -->
+            <form action="https://formspree.io/f/mwkgeewb" method="POST">
+                <input type="text" name="name" v-model="contactForm.name" placeholder="Your Name" required>
+                <input type="email" name="_replyto" v-model="contactForm.email" placeholder="Your Email" required>
+                <textarea name="message" v-model="contactForm.message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+
+            <!-- Social Media Icons -->
+            <div class="social-icons text-center">
+                <a v-for="link in socialLinks" :href="link.url" target="_blank" :class="['fab', link.icon]"></a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="margin-top: auto;">
+            <p>&copy; <span id="current-year"></span> Gaurav Sharma. All Rights Reserved.</p>
+        </footer>
+
+        <!-- Year Update Script -->
+        <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        </script>
+    </div>
+
+    <!-- Vue.js Initialization -->
+    <script>
+        new Vue({
+            el: '#contactApp',
+            data: {
+                contactForm: {
+                    name: '',
+                    email: '',
+                    message: ''
+                },
+                socialLinks: [
+                    { icon: 'fa-github', url: 'https://github.com/' },
+                    { icon: 'fa-linkedin', url: 'https://www.linkedin.com/in' },
+                    { icon: 'fa-instagram', url: 'https://www.instagram.com' },
+                    { icon: 'fa-youtube', url: 'https://www.youtube.com' },
+                    { icon: 'fa-facebook', url: 'https://www.facebook.com' },
+                    // Other social media links.
+                ]
+            },
+            methods: {
+                submitForm() {
+                    // Form submission logic will be added later
+                }
+            }
+        });
+    </script> 
+    <script src="main.js"></script>
+
+</body>
+
+</html>

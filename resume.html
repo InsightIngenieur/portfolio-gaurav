@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="resumeApp">
+        <!-- Navigation Menu -->
+        <nav class="navbar"> 
+            <span class="hamburger">&#9776;</span>
+              <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="goals.html">Goals</a></li>
+                <li><a href="skills.html">Skills</a></li> 
+                <li><a href="projects.html">Projects</a></li> 
+                <li><a href="resume.html" class="active">Resume</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Resume Section -->
+        <section id="resume-section" class="container my-5 text-white">
+            <h1 class="headings text-white">RESUME</h1>
+            <a href="will_add_later.pdf" download="Gaurav_Sharma_Resume.pdf" class="btn btn-primary">Download Resume</a>
+
+            <!-- Vue.js Dynamic Profile Summary -->
+            <div>
+                <h2 class="text-white">Profile Summary:</h2>
+                <p>{{ profileSummary }}</p>
+            </div>
+
+            <!-- Vue.js Dynamic Education Section -->
+            <h3 class="text-white">Education:</h3>
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <th>Program</th>
+                        <th>Institution</th>
+                        <th>Duration</th>
+                        <th>Highlights</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="education in educationHistory">
+                        <td>{{ education.program }}</td>
+                        <td>{{ education.institution }}</td>
+                        <td>{{ education.duration }}</td>
+                        <td>{{ education.highlights }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Vue.js Dynamic Experience Section -->
+            <h3 class="text-white">Experience:</h3>
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Company</th>
+                        <th>Duration</th>
+                        <th>Project</th>
+                        <th>Key Responsibilities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="experience in workExperience">
+                        <td>{{ experience.role }}</td>
+                        <td>{{ experience.company }}</td>
+                        <td>{{ experience.duration }}</td>
+                        <td>{{ experience.project }}</td>
+                        <td>{{ experience.responsibilities }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Vue.js Dynamic Skills Section -->
+            <h3 class="text-white">Skills & Certifications:</h3>
+            <ul>
+                <li v-for="skill in skills">{{ skill }}</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; <span id="current-year"></span> Gaurav Sharma. All Rights Reserved.</p>
+        </footer>
+
+        <!-- Year Update Script -->
+        <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        </script>
+    </div>
+
+    <!-- Vue.js Initialization -->
+    <script>
+        new Vue({
+            el: '#resumeApp',
+            data: {
+                profileSummary: 'Motivated Business Analyst with a strong background in Agile methodologies...',
+                educationHistory: [
+                    {
+                        program: 'Full Stack Application Development',
+                        institution: 'Nova Scotia Community College',
+                        duration: '09/2023 - Present',
+                        highlights: 'Front-end (HTML, CSS, JS, React, Vue.js), Back-end (Node.js, Express, MongoDB, SQL), API Integration, Git'
+                    },
+                    {
+                        program: 'Technical Systems Analysis',
+                        institution: 'Fanshawe College',
+                        duration: '09/2022 – 04/2023',
+                        highlights: 'Essential management skills, Requirements management, Research & documentation, Interface & application technologies, Agile methodologies, Data management, Robotic Process Automation'
+                    },
+                    // ... other education data
+                ],
+                workExperience: [
+                    {
+                        role: 'Business Analyst',
+                        company: 'Husky Technologies',
+                        duration: '11/2021 – 05/2022',
+                        project: 'Machine Health Tracker',
+                        responsibilities: 'Requirements gathering, Sprint facilitation, Cross-team collaboration'
+                    },
+                    // ... other work experience data
+                ],
+                skills: [
+                    'CBAP (IIBA)',
+                    'Agile (Scrum, Kanban), Waterfall',
+                    'Jira, Azure, Blueprint, Visio, MS Office, Balsamiq'
+                    // ... other skills
+                ]
+            }
+        });
+    </script> 
+    <script src="main.js"></script>
+</body>
+
+</html>
